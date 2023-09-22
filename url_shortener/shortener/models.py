@@ -24,3 +24,6 @@ class Url(models.Model):
         default=0,
         verbose_name='Количество посещений ссылки'
     )
+
+    def __str__(self):
+        return f"{self.full_url[:10]}/{self.author}"
