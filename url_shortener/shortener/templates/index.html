@@ -20,10 +20,19 @@
     {% endfor %}
     <div class='my-3'><input class="btn btn-primary" type="submit" value="Отправить"></div>
   </form>
+  <h2>Ваши ссылки:</h2>
+  <ol class='list-group list-group-numbered'>
+  {% for url_obj in user_urls %}
+  <li class='list-group-item d-flex justify-content-left align-items-start'>
+    <div class="ms-2 me-auto">
+      <div class="fw-bold"><a href='{% url 'goto' url_obj.shorted_url %}'>Сокращенная ссылка: {{ url_obj.shorted_url }}</a></div>
+      Посещений: {{ url_obj.visited_times }}.
+      <span class="badge bg-danger rounded-pill"><a href='{% url 'delete_url' url_obj.shorted_url %}'>Удалить ссылку</a></span>
+    </div>
+  </li>
+  {% endfor %}  
+  </ol>
   {% else %}
     <h2>Добро пожаловать! Войдите, чтобы продолжить.</h2>
   {% endif %} 
-  {% for url in user_urls %}
-    <p>{{ url }}</p>
-  {% endfor %}  
 {% endblock %}

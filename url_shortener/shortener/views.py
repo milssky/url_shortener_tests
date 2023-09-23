@@ -11,13 +11,12 @@ def index(request):
     form = UrlForm()
     if not request.user.is_authenticated:
         return render(request, 'index.html', {'form': form})
-    user_urls = request.user.urls.all()
     return render(
         request,
         'index.html',
         {
             'form': form,
-            'user_urls': user_urls
+            'user_urls': request.user.urls.all()
         }
     )
 
