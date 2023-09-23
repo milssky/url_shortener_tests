@@ -26,4 +26,4 @@ class Url(models.Model):
     )
 
     def __str__(self):
-        return f"{self.full_url[:10]}/{self.author}"
+        return f"Short: {self.shorted_url}, {self.author}"
