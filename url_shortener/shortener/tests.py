@@ -24,7 +24,7 @@ class TestUrls(TestCase):
         cls.CREATE_URL = reverse('create_url')
         cls.DELETE_URL = reverse(
             'delete_url',
-            args=(cls.url.shorted_url,)
+    args=(cls.url.shorted_url,)
         )
         cls.GOTO_URL = reverse(
             'goto',
